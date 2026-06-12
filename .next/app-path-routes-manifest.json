@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/page": "/admin",
+  "/api/admin/analytics/route": "/api/admin/analytics",
+  "/api/appointments/details/route": "/api/appointments/details",
+  "/api/appointments/route": "/api/appointments",
+  "/api/appointments/status/route": "/api/appointments/status",
+  "/api/auth/login/route": "/api/auth/login",
+  "/api/payments/order/route": "/api/payments/order",
+  "/api/payments/verify/route": "/api/payments/verify",
+  "/api/slots/route": "/api/slots",
+  "/book/page": "/book",
+  "/confirmation/[id]/page": "/confirmation/[id]",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

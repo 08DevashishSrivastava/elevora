@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// Since SQLite does not support enums, we represent them as Strings in the schema.
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  passwordHash String
+  name         String
+  role         String        @default("PATIENT") // "ADMIN", "PATIENT"
+  phone        String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  appointments Appointment[]
+}
+
+model Slot {
+  id          String       @id @default(uuid())
+  date        DateTime     // Date of the slot (stored as YYYY-MM-DD at 00:00:00 UTC)
+  startTime   String       // HH:MM format (24 hour)
+  endTime     String       // HH:MM format (24 hour)
+  isAvailable Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  appointment Appointment?
+}
+
+model Appointment {
+  id           String            @id @default(uuid())
+  patientName  String
+  patientEmail String
+  patientPhone String
+  notes        String?
+  status       String            @default("PENDING") // "PENDING", "CONFIRMED", "CANCELLED", "COMPLETED"
+  date         DateTime
+  slotId       String            @unique
+  slot         Slot              @relation(fields: [slotId], references: [id], onDelete: Cascade)
+  userId       String?
+  user         User?             @relation(fields: [userId], references: [id])
+  payment      Payment?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+}
+
+model Payment {
+  id                String        @id @default(uuid())
+  appointmentId     String        @unique
+  appointment       Appointment   @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  razorpayOrderId   String        @unique
+  razorpayPaymentId String?       @unique
+  razorpaySignature String?
+  amount            Int           // In paise (e.g. 50000 for ₹500)
+  currency          String        @default("INR")
+  status            String        @default("PENDING") // "PENDING", "SUCCESS", "FAILED"
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}

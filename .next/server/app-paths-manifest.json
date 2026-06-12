@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/admin/analytics/route": "app/api/admin/analytics/route.js",
+  "/api/appointments/details/route": "app/api/appointments/details/route.js",
+  "/api/appointments/route": "app/api/appointments/route.js",
+  "/api/appointments/status/route": "app/api/appointments/status/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/payments/order/route": "app/api/payments/order/route.js",
+  "/api/payments/verify/route": "app/api/payments/verify/route.js",
+  "/api/slots/route": "app/api/slots/route.js",
+  "/book/page": "app/book/page.js",
+  "/confirmation/[id]/page": "app/confirmation/[id]/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
+}
