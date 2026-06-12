@@ -9,3 +9,4 @@
 {"timestamp":"00:00:05.674","source":"Browser","level":"WARN","message":"THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."}
 {"timestamp":"00:00:05.677","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\\u001b[39m\" \"\\u001b[2m(file://C:/Users/devas/Downloads/elevora-source (1)\\u001b[22m\""}
 {"timestamp":"00:00:05.677","source":"Browser","level":"WARN","message":"\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\u001b[39m"}
+{"timestamp":"00:14:09.497","source":"Server","level":"LOG","message":"✓ Compiled in 203ms"}
